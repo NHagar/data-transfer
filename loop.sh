@@ -43,7 +43,7 @@ for REPO in "${DATASETS[@]}"; do
   uv run main.py "$REPO" "$LOCAL_DIR"
 
   # 2) Push to S3
-  aws s3 sync "${LOCAL_DIR}" "${S3_PREFIX}" --exclude ".cache/*" --exclude ".ca>
+  aws s3 sync "${LOCAL_DIR}" "${S3_PREFIX}" --exclude ".cache/*" --exclude ".cache/**" --no-follow-symlinks
 
   # 3) Clean up local storage
   rm -rf "${LOCAL_DIR}"
