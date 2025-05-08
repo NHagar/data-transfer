@@ -3,6 +3,11 @@ set -euo pipefail
 
 # List the datasets you want to mirror
 DATASETS=(
+  nhagar/finemath_urls_3plus
+  nhagar/finemath_urls_4plus
+  nhagar/georgian-corpus_urls
+  nhagar/cc_news_urls
+  nhagar/olmoe-mix-0924_urls
   nhagar/fineweb_urls
 )
 
