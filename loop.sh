@@ -16,6 +16,7 @@ DATASETS=(
   nhagar/glotcc-v1_urls
   nhagar/open-web-math_urls
   nhagar/mc4_fi_cleaned_urls
+  nhagar/fineweb_urls
 )
 
 # Where to store the temporary downloads
