@@ -1,0 +1,9 @@
+[project]
+name = "transf"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "huggingface-hub[hf-transfer,hf-xet]>=0.31.1",
+]
