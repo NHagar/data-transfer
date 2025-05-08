@@ -19,7 +19,7 @@ DATASETS=(
 )
 
 # Where to store the temporary downloads
-LOCAL_ROOT="/mnt/hf"
+LOCAL_ROOT="/mnt/nvme/hf"
 
 # S3 bucket that will hold everything
 BUCKET="hf-datasets-nh"

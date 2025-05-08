@@ -2,7 +2,7 @@ import argparse
 
 from huggingface_hub import snapshot_download
 
-p = argparse.ArgumentParser(description="Mirror a Hugging Face repo locally")
+p = argparse.ArgumentParser(description="Mirror a HuggingFace repo locally")
 p.add_argument("repo_id", help="e.g. 'bigscience-data/the-pile'")
 p.add_argument("local_dir")
 
