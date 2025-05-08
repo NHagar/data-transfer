@@ -17,5 +17,5 @@ snapshot_download(
     local_dir=args.local_dir,
     local_dir_use_symlinks=False,
     allow_patterns="*.parquet",  # filter to the heavy bits
-    max_workers=32,  # saturate 10–25 Gb/s
+    max_workers=12,  # saturate 10–25 Gb/s
 )
