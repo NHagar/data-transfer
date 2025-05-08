@@ -3,19 +3,6 @@ set -euo pipefail
 
 # List the datasets you want to mirror
 DATASETS=(
-  nhagar/fineweb-2_urls
-  nhagar/101_billion_arabic_words_dataset_urls
-  nhagar/infimm-webmath-40b_urls
-  nhagar/mc4-es-sampled_urls
-  nhagar/c4-chinese-zhtw_urls
-  nhagar/clean_mc4_it_urls
-  nhagar/onlysports_dataset_urls
-  nhagar/common-crawl-sample_urls
-  nhagar/culturax-mini-nonshuffled_urls
-  nhagar/obelics_urls
-  nhagar/glotcc-v1_urls
-  nhagar/open-web-math_urls
-  nhagar/mc4_fi_cleaned_urls
   nhagar/fineweb_urls
 )
 
