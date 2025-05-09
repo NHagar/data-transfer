@@ -116,6 +116,7 @@ find "${RAW_URL_BATCHES_PARENT_DIR}" -mindepth 1 -maxdepth 1 -type d | while IFS
         batch_num_str=$(echo "${batch_filename_no_ext}" | sed -n 's/download_urls_batch_\([0-9]*\)/\1/p')
         batch_num=$((10#$batch_num_str)) # Convert to decimal, robustly
 
+
         if [ -z "$batch_num_str" ]; then
             warn "Could not extract batch number from ${batch_filename_no_ext} (File: ${url_batch_filepath}). Skipping."
             continue
@@ -136,6 +137,8 @@ find "${RAW_URL_BATCHES_PARENT_DIR}" -mindepth 1 -maxdepth 1 -type d | while IFS
         manifest_filepath="${current_temp_manifest_dir}/batch_${batch_num}_manifest.csv"
 
         mkdir -p "${batch_specific_wget_dir}"
+        log "[Batch ${batch_num}] Cleaning up previous attempt's manifest and download directory for this batch."
+        rm -f "${manifest_filepath}"
 
         # --- Stage 2a: Prepare Manifest and Download URLs with wget ---
         log "[Batch ${batch_num}] Preparing manifest and downloading URL contents..."

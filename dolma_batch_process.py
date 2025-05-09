@@ -97,7 +97,7 @@ def main():
 
         fpaths = con.execute("SELECT local_json_filepath FROM manifest_df").fetchall()
         fpaths = [f[0] for f in fpaths]
-        fpaths = ",".join(fpaths)
+        fpaths = ", ".join(fpaths)
 
         query = f"""
         WITH urls AS (
