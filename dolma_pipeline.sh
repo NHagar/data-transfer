@@ -32,7 +32,7 @@ DATASET_NAME_S3="${HF_BASE_DATASET_NAME}_urls_${HF_VARIANT}"
 S3_BUCKET_BASE_PATH="s3://hf-datasets-nh/${DATASET_NAME_S3}" # Base S3 path
 
 # === Tool Configuration ===
-PYTHON_EXEC="/home/ec2-user/.local/bin/uv run"
+PYTHON_EXEC="uv"
 WGET_PARALLEL_JOBS=10       # Number of parallel wget downloads per batch
 WGET_TIMEOUT=45             # Timeout for each wget request in seconds (increased for content)
 WGET_TRIES=2                # Number of retries for wget
@@ -207,7 +207,7 @@ find "${RAW_URL_BATCHES_PARENT_DIR}" -mindepth 1 -maxdepth 1 -type d | while IFS
         # The python_source_file_basename is derived from the Dolma source file (e.g., allenai_dolma_commoncrawl)
         python_source_file_basename="${source_dir_name}"
 
-        if ! "${PYTHON_EXEC}" process_batch.py \
+        if ! "${PYTHON_EXEC}" run process_batch.py \
             --manifest_file "${manifest_filepath}" \
             --batch_num "${batch_num}" \
             --hf_username "${HF_USERNAME}" \
