@@ -73,7 +73,7 @@ else
     (cd "${GIT_CLONE_DIR}" && git pull --ff-only) # Use --ff-only or handle merge conflicts appropriately
 fi
 log "Removing any existing sample files (e.g., *-sample*.txt)..."
-find "${GIT_CLONE_DIR}/urls/" -name '*-sample*.txt' -delete -print || true
+find "${GIT_CLONE_DIR}/urls/" \( -name '*-sample*.txt' -o -name '*v1_6*' -o -name '*v1_7*' \) -delete -print || true
 log "Starting URL filtering and batching..."
 SOURCE_URL_FILES_DIR="${GIT_CLONE_DIR}/urls"
 for source_txt_file in "${SOURCE_URL_FILES_DIR}/"*.txt; do
