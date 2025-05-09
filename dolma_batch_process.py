@@ -72,11 +72,11 @@ def main():
     # Parquet filename reflects the new processing logic
     output_parquet_file = os.path.join(
         args.output_dir,
-        f"{args.source_file_basename}_extracted_inner_urls_batch_{args.batch_num}.parquet",
+        f"{args.hf_base_dataset_name}_extracted_inner_urls_batch_{args.batch_num}.parquet",
     )
 
     logger.info(
-        f"Starting JSON processing for batch {args.batch_num} from source {args.source_file_basename}, using manifest: {args.manifest_file}"
+        f"Starting JSON processing for batch {args.batch_num} from source {args.hf_base_dataset_name}, using manifest: {args.manifest_file}"
     )
     logger.info(
         f"Inner URL will be extracted from downloaded JSON files using JSONPath: {args.json_inner_url_path}"
@@ -164,7 +164,7 @@ def upload_to_hf(args, parquet_filepath_to_upload):
             path_in_repo=path_in_repo,
             repo_id=repo_id,
             repo_type="dataset",
-            commit_message=f"Add extracted inner URLs batch {args.source_file_basename} batch {args.batch_num}",  # Updated commit message
+            commit_message=f"Add extracted inner URLs batch {args.hf_base_dataset_name} batch {args.batch_num}",  # Updated commit message
         )
         logger.info(
             f"Successfully uploaded batch {args.batch_num} to Hugging Face repo {repo_id} as {path_in_repo}"
