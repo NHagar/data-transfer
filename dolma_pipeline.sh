@@ -4,6 +4,7 @@
 set -euo pipefail
 # For debugging:
 # set -x
+echo "DEBUG: Script PATH is: $PATH"
 
 # --- Configuration ---
 # === EC2 Paths (ADJUST THESE TO YOUR EC2 SETUP) ===
