@@ -176,25 +176,12 @@ find "${RAW_URL_BATCHES_PARENT_DIR}" -mindepth 1 -maxdepth 1 -type d | while IFS
                     local output_filepath="$2"
                     # Use a more descriptive log for individual wget attempts
                     # log "[wget] Attempting: ${url_to_download} -> ${output_filepath}"
-                    if wget --user-agent="${USER_AGENT}" \
+                    wget --user-agent="${USER_AGENT}" \
                          --tries="${WGET_TRIES}" \
                          --timeout="${WGET_TIMEOUT}" \
                          --output-document="${output_filepath}" \
                          --no-clobber \
-                         "${url_to_download}"; then
-                        # Optional: check if file has content, log if empty
-                        if [ ! -s "${output_filepath}" ]; then
-                             warn "[wget] SUCCESS but empty file for: ${url_to_download} at ${output_filepath}"
-                        fi
-                        return 0 # Success
-                    else
-                        local wget_exit_code=$?
-                        warn "[wget] FAILED (Code: ${wget_exit_code}) for: ${url_to_download} (Tried to save to ${output_filepath})"
-                        # Consider removing the (likely empty or partial) output file on failure
-                        rm -f "${output_filepath}"
-                        return "${wget_exit_code}" # Propagate wget's error code if desired, though xargs might not stop.
-                                                   # For robustness, we let xargs continue and Python handles missing files.
-                    fi
+                         "${url_to_download}";
                 }
                 export -f run_single_wget # Export function for xargs subshells
                 export -f log warn # Export logging functions
