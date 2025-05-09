@@ -207,7 +207,7 @@ find "${RAW_URL_BATCHES_PARENT_DIR}" -mindepth 1 -maxdepth 1 -type d | while IFS
         # The python_source_file_basename is derived from the Dolma source file (e.g., allenai_dolma_commoncrawl)
         python_source_file_basename="${source_dir_name}"
 
-        if ! "${PYTHON_EXEC}" run process_batch.py \
+        if ! "${PYTHON_EXEC}" run dolma_batch_process.py \
             --manifest_file "${manifest_filepath}" \
             --batch_num "${batch_num}" \
             --hf_username "${HF_USERNAME}" \
