@@ -104,7 +104,7 @@ def main():
         WITH urls AS (
             SELECT
                 metadata.url AS url
-            FROM read_json('[{fpaths}]', format = 'newline_delimited', compression = 'gzip')
+            FROM read_json([{fpaths}], format = 'newline_delimited', compression = 'gzip')
         )
         SELECT
             url,
