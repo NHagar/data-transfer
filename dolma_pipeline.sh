@@ -32,7 +32,7 @@ DATASET_NAME_S3="${HF_BASE_DATASET_NAME}_urls_${HF_VARIANT}"
 S3_BUCKET_BASE_PATH="s3://hf-datasets-nh/${DATASET_NAME_S3}" # Base S3 path
 
 # === Tool Configuration ===
-PYTHON_EXEC="uv run"       # Path to python3 interpreter
+PYTHON_EXEC="~/.local/bin/uv run"
 WGET_PARALLEL_JOBS=10       # Number of parallel wget downloads per batch
 WGET_TIMEOUT=45             # Timeout for each wget request in seconds (increased for content)
 WGET_TRIES=2                # Number of retries for wget
