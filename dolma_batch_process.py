@@ -78,9 +78,6 @@ def main():
     logger.info(
         f"Starting JSON processing for batch {args.batch_num} from source {args.hf_base_dataset_name}, using manifest: {args.manifest_file}"
     )
-    logger.info(
-        f"Inner URL will be extracted from downloaded JSON files using JSONPath: {args.json_inner_url_path}"
-    )
 
     try:
         con = duckdb.connect()
