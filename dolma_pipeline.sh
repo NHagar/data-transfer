@@ -182,6 +182,7 @@ find "${RAW_URL_BATCHES_PARENT_DIR}" -mindepth 1 -maxdepth 1 -type d | while IFS
                          --tries="${WGET_TRIES}" \
                          --timeout="${WGET_TIMEOUT}" \
                          --output-document="${output_filepath}" \
+                         --no-clobber \
                          "${url_to_download}"; then
                         # Optional: check if file has content, log if empty
                         if [ ! -s "${output_filepath}" ]; then
