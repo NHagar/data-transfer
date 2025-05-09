@@ -6,6 +6,7 @@ import os
 import duckdb
 import pandas as pd  # For reading the manifest CSV easily
 import tldextract
+from duckdb.typing import VARCHAR
 from huggingface_hub import HfApi
 
 # No need for 'import json' if DuckDB handles all JSON parsing
@@ -82,7 +83,11 @@ def main():
     try:
         con = duckdb.connect()
         con.create_function(
-            "extract_domain", extract_domain_udf, [str], str, type="SCALAR"
+            "extract_domain",  # Name of the UDF in SQL queries
+            extract_domain_udf,  # The Python function to use
+            [VARCHAR],  # Input parameter type (URL as string)
+            VARCHAR,  # Return type (domain as string)
+            null_handling="special",
         )
 
         # Read the manifest file
