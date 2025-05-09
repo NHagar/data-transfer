@@ -83,6 +83,7 @@ def main():
     try:
         con = duckdb.connect()
         con.execute("SET max_expression_depth TO 5000;")
+        con.execute("SET enable_progress_bar = true;")
         con.create_function(
             "extract_domain",  # Name of the UDF in SQL queries
             extract_domain_udf,  # The Python function to use
