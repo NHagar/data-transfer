@@ -136,8 +136,6 @@ find "${RAW_URL_BATCHES_PARENT_DIR}" -mindepth 1 -maxdepth 1 -type d | while IFS
         manifest_filepath="${current_temp_manifest_dir}/batch_${batch_num}_manifest.csv"
 
         mkdir -p "${batch_specific_wget_dir}"
-        rm -rf "${batch_specific_wget_dir:?}"/* # Clean download dir before use
-        rm -f "${manifest_filepath}"             # Clean old manifest file
 
         # --- Stage 2a: Prepare Manifest and Download URLs with wget ---
         log "[Batch ${batch_num}] Preparing manifest and downloading URL contents..."
