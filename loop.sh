@@ -3,7 +3,27 @@ set -euo pipefail
 
 # List the datasets you want to mirror
 DATASETS=(
-  nhagar/fineweb_urls
+  nhagar/c4_urls_en
+  nhagar/c4_urls_en.noblocklist
+  nhagar/c4_urls_en.noclean
+  nhagar/c4_urls_multilingual
+  nhagar/dolma_urls_v1.5
+  nhagar/dolma_urls_v1.6
+  nhagar/dolma_urls_v1.7
+  nhagar/oscar-2109_urls
+  nhagar/oscar-2201_urls
+  nhagar/oscar-2301_urls
+  nhagar/legal-mc4_urls
+  nhagar/hplt2.0_cleaned_urls
+  nhagar/crawlpt_dedup_urls
+  nhagar/mixturevitae-fineweb-permissive-multilingual-2m_urls
+  nhagar/dclm-edu_urls
+  nhagar/culturay_urls
+  nhagar/fineweb2-hq_urls
+  nhagar/lucie-training-dataset_urls
+  nhagar/catalog_urls
+  nhagar/fulg_urls
+  nhagar/mc4_nl_cleaned_urls 
 )
 
 # Where to store the temporary downloads
